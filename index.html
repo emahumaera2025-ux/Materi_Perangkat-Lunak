@@ -365,265 +365,6 @@ body::after{
 .util-icons .app-icon .fb{font-size:1.3em}
 .util-icons .app-name{font-size:.62em}
 
-/* ============ SLIDE 8 — SIMULASI ============ */
-.sim-scenarios{display:flex;flex-wrap:wrap;gap:.6em;margin-bottom:.9em}
-.sim-scn{
-  font-family:inherit;cursor:pointer;
-  font-size:1em;font-weight:800;color:var(--ink-2);
-  padding:.8em 1.2em;border-radius:.8em;
-  background:var(--glass-2);border:1px solid var(--line);
-  transition:all .3s cubic-bezier(.22,.9,.25,1);
-  box-shadow:0 4px 12px -6px rgba(70,50,160,.16);
-}
-.sim-scn:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 10px 20px -8px rgba(70,50,160,.32)}
-.sim-scn.active{
-  color:#fff;border-color:transparent;
-  background:linear-gradient(135deg,var(--violet),var(--cyan));
-  box-shadow:0 10px 24px -8px rgba(124,58,237,.7);
-}
-
-.sim-controls{
-  display:flex;flex-wrap:wrap;gap:.6em;margin-bottom:1em;
-  padding:.85em 1em;border-radius:1em;align-items:center;
-  background:linear-gradient(140deg,rgba(124,58,237,.08),rgba(8,145,178,.05));
-  border:1px solid var(--line);
-}
-.sim-btn{
-  font-family:inherit;cursor:pointer;
-  font-size:1em;font-weight:800;
-  padding:.75em 1.3em;border-radius:.75em;
-  border:1px solid var(--line-2);background:#fff;color:var(--ink);
-  transition:all .25s cubic-bezier(.22,.9,.25,1);
-  display:inline-flex;align-items:center;gap:.5em;
-  box-shadow:0 4px 10px -6px rgba(70,50,160,.25);
-  white-space:nowrap;
-}
-.sim-btn:hover:not(:disabled){
-  transform:translateY(-2px);
-  border-color:var(--violet);
-  box-shadow:0 10px 20px -8px rgba(124,58,237,.45);
-}
-.sim-btn:active:not(:disabled){transform:translateY(0) scale(.96)}
-.sim-btn:disabled{opacity:.32;cursor:not-allowed;transform:none;box-shadow:none}
-.sim-btn.primary{
-  color:#fff;border-color:transparent;
-  background:linear-gradient(135deg,var(--violet),var(--cyan));
-  box-shadow:0 10px 22px -8px rgba(124,58,237,.65);
-}
-.sim-btn.danger{
-  color:#fff;border-color:transparent;
-  background:linear-gradient(135deg,var(--amber),var(--rose));
-  box-shadow:0 10px 22px -8px rgba(225,29,72,.6);
-}
-.sim-btn.toggled{
-  color:#fff;border-color:transparent;
-  background:linear-gradient(135deg,var(--emerald),var(--cyan));
-  box-shadow:0 10px 22px -8px rgba(5,150,105,.65);
-}
-
-.sim-flow{
-  display:flex;flex-direction:column;gap:1em;
-  padding:1.2em 1.3em;border-radius:1.2em;
-  background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(244,241,255,.65));
-  border:1px solid var(--line);box-shadow:var(--card-sh);
-  margin-bottom:1em;
-}
-.sim-flow-main{
-  display:flex;align-items:stretch;justify-content:center;gap:.55em;flex-wrap:wrap;
-}
-.sim-node{
-  display:flex;flex-direction:column;align-items:center;gap:.3em;
-  padding:.95em .9em;border-radius:1em;
-  background:#fff;border:2.5px solid var(--line);
-  flex:1 1 0;min-width:8.5em;text-align:center;
-  transition:all .35s cubic-bezier(.22,.9,.25,1);
-}
-.sim-node .sim-emoji{font-size:2.1em;line-height:1}
-.sim-node .sim-name{font-size:1.15em;font-weight:900;letter-spacing:-.01em;line-height:1.15}
-.sim-node .sim-role{
-  font-size:.72em;font-weight:800;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--muted);line-height:1.2;
-}
-.sim-node.sim-user{border-color:rgba(225,29,72,.4)}
-.sim-node.sim-app{border-color:rgba(8,145,178,.4)}
-.sim-node.sim-os{border-color:rgba(124,58,237,.4)}
-.sim-node.sim-hw{border-color:rgba(5,150,105,.4)}
-.sim-node.sim-util{border-color:rgba(217,119,6,.45)}
-
-.sim-node.active{
-  transform:scale(1.06);
-  border-color:currentColor;
-  box-shadow:0 0 0 4px rgba(124,58,237,.2),0 22px 44px -18px rgba(70,50,160,.6);
-  animation:simPulse 1.15s ease-in-out infinite alternate;
-}
-.sim-node.sim-user.active{color:#e11d48}
-.sim-node.sim-app.active{color:#0891b2}
-.sim-node.sim-os.active{color:#7c3aed}
-.sim-node.sim-hw.active{color:#059669}
-.sim-node.sim-util.active{color:#d97706}
-@keyframes simPulse{
-  from{box-shadow:0 0 0 4px rgba(124,58,237,.16),0 18px 34px -18px rgba(70,50,160,.55)}
-  to{box-shadow:0 0 0 10px rgba(124,58,237,.10),0 24px 48px -16px rgba(70,50,160,.65)}
-}
-.sim-arrow{
-  align-self:center;
-  font-size:1.5em;color:var(--violet);font-weight:900;line-height:1;opacity:.6;
-}
-@media(max-width:800px){
-  .sim-flow-main{flex-direction:column}
-  .sim-arrow{transform:rotate(90deg)}
-  .sim-node{min-width:0;width:100%}
-}
-
-.sim-util-row{
-  display:flex;align-items:center;justify-content:center;gap:.9em;flex-wrap:wrap;
-  padding-top:.9em;border-top:1px dashed rgba(217,119,6,.3);
-}
-.sim-util-row .sim-node{flex:0 0 auto;min-width:12em;padding:.7em 1.1em;flex-direction:row;gap:.7em}
-.sim-util-row .sim-node .sim-emoji{font-size:1.7em}
-.sim-util-row .sim-node .sim-name{font-size:1.05em}
-.sim-util-note{
-  font-size:.88em;font-weight:700;color:var(--muted);max-width:36ch;line-height:1.4;
-}
-
-.sim-explain{
-  padding:1.3em 1.6em;border-radius:1.1em;
-  background:linear-gradient(140deg,rgba(124,58,237,.14),rgba(8,145,178,.09));
-  border:1.5px solid rgba(124,58,237,.34);
-  font-size:1.2em;line-height:1.7;color:var(--ink-2);
-  display:flex;flex-direction:column;gap:.55em;justify-content:center;
-  min-height:6.5em;
-  box-shadow:0 12px 30px -20px rgba(124,58,237,.45);
-}
-.sim-explain .sim-step-count{
-  font-size:.72em;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--violet);
-}
-.sim-explain b{color:var(--violet);font-weight:900}
-.sim-explain .sim-explain-sub{
-  font-size:.85em;color:var(--muted);line-height:1.55;
-}
-
-.sim-legend{
-  margin-top:.9em;display:flex;flex-wrap:wrap;gap:.45em;
-}
-.sim-legend span{
-  font-size:.82em;font-weight:800;
-  padding:.5em .9em;border-radius:.6em;
-  background:rgba(255,255,255,.75);border:1px solid var(--line);
-  color:var(--ink-2);
-}
-
-/* ============ SLIDE 9 — LATIHAN KINESTETIK ============ */
-.kin-pool{
-  display:flex;flex-wrap:wrap;gap:.55em;padding:1em;border-radius:1.1em;
-  background:linear-gradient(150deg,rgba(255,255,255,.9),rgba(244,241,255,.7));
-  border:2px dashed rgba(124,58,237,.35);min-height:6.5em;margin-bottom:1em;
-  align-content:flex-start;
-}
-.kin-chip{
-  font-family:inherit;cursor:pointer;
-  font-size:.9em;font-weight:800;color:var(--ink);
-  padding:.65em 1.05em;border-radius:.7em;
-  background:#fff;border:1px solid var(--line-2);
-  box-shadow:0 6px 14px -8px rgba(70,50,160,.3);
-  transition:all .25s cubic-bezier(.22,.9,.25,1);
-  user-select:none;
-}
-.kin-chip:hover{transform:translateY(-3px) scale(1.04);border-color:var(--violet);box-shadow:0 12px 22px -10px rgba(124,58,237,.5)}
-.kin-chip.selected{
-  color:#fff;background:linear-gradient(135deg,var(--violet),var(--cyan));
-  border-color:transparent;transform:scale(1.08);
-  box-shadow:0 0 0 4px rgba(124,58,237,.22),0 14px 26px -10px rgba(124,58,237,.7);
-  animation:kinPulse 1s ease-in-out infinite alternate;
-}
-@keyframes kinPulse{from{transform:scale(1.06)}to{transform:scale(1.1)}}
-.kin-chip.wrong{animation:kinShake .45s ease}
-@keyframes kinShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
-.kin-chip.placed{
-  background:linear-gradient(140deg,rgba(5,150,105,.15),rgba(52,211,153,.10));
-  border-color:rgba(5,150,105,.45);color:#047857;
-  cursor:default;transform:none;box-shadow:none;
-}
-.kin-chip.placed::before{content:"✓ ";font-weight:900}
-
-.kin-zones{display:grid;grid-template-columns:repeat(3,1fr);gap:.85em}
-@media(max-width:820px){.kin-zones{grid-template-columns:1fr}}
-.kin-zone{
-  border-radius:1.1em;padding:1em;
-  background:rgba(255,255,255,.6);border:2px solid var(--line);
-  min-height:7.5em;display:flex;flex-direction:column;gap:.55em;
-  cursor:pointer;transition:all .3s cubic-bezier(.22,.9,.25,1);
-}
-.kin-zone:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:var(--card-sh)}
-.kin-zone.zone-os{border-color:rgba(124,58,237,.35)}
-.kin-zone.zone-app{border-color:rgba(8,145,178,.35)}
-.kin-zone.zone-util{border-color:rgba(217,119,6,.35)}
-.kin-zone.armed{box-shadow:0 0 0 4px rgba(124,58,237,.15);border-color:var(--violet)}
-.kin-zone h4{font-size:.9em;font-weight:900;letter-spacing:-.01em}
-.kin-zone .kin-items{display:flex;flex-wrap:wrap;gap:.4em;align-content:flex-start;flex:1}
-.kin-score{
-  margin-top:1em;text-align:center;font-size:1em;font-weight:900;
-  padding:.7em;border-radius:.85em;
-  background:linear-gradient(120deg,rgba(124,58,237,.15),rgba(8,145,178,.10));
-  border:1px solid rgba(124,58,237,.28);
-}
-.kin-score b{color:var(--violet);font-size:1.15em}
-
-/* ============ SLIDE 10 — KESEHARIAN ============ */
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:.85em;margin-bottom:1.1em}
-@media(max-width:980px){.flow{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:620px){.flow{grid-template-columns:1fr}}
-.flow-step{position:relative;padding-top:1.6em}
-.flow-step .step-n{
-  position:absolute;top:-.85em;left:.85em;width:1.9em;height:1.9em;border-radius:.6em;
-  display:grid;place-items:center;font-size:.85em;font-weight:900;color:#fff;
-  background:linear-gradient(140deg,#06b6d4,#8b5cf6);
-  box-shadow:0 10px 22px -10px rgba(6,182,212,.9);
-}
-.flow-step h4{font-size:.9em;font-weight:800;margin-bottom:.35em}
-.flow-step p{font-size:.78em;line-height:1.55;color:var(--muted)}
-.pill-note{
-  display:flex;align-items:center;gap:.9em;flex-wrap:wrap;
-  padding:1em 1.15em;border-radius:1.1em;
-  background:linear-gradient(120deg,rgba(124,58,237,.16),rgba(8,145,178,.10));
-  border:1px solid rgba(124,58,237,.28);
-  font-size:.88em;line-height:1.65;color:var(--ink-2);
-}
-.pill-note b{color:var(--violet)}
-
-/* ============ SLIDE 11 — RANGKUMAN ============ */
-.final-grid{display:grid;grid-template-columns:.95fr 1.35fr;gap:1.1em;align-items:start}
-@media(max-width:900px){.final-grid{grid-template-columns:1fr}}
-.ask{display:flex;flex-direction:column;gap:.7em}
-.ask-item{
-  display:flex;gap:.85em;align-items:flex-start;padding:1em 1.05em;border-radius:1em;
-  background:linear-gradient(140deg,rgba(245,158,11,.14),rgba(244,63,94,.08));
-  border:1px solid rgba(245,158,11,.32);
-}
-.ask-item .n{
-  flex:0 0 auto;width:1.7em;height:1.7em;border-radius:.55em;display:grid;place-items:center;
-  font-size:.8em;font-weight:900;color:#fff;background:linear-gradient(140deg,var(--amber),var(--rose));
-  box-shadow:0 8px 16px -8px rgba(225,29,72,.6);
-}
-.ask-item p{font-size:.85em;line-height:1.6;font-weight:700;padding-top:.15em;color:var(--ink)}
-.sum-list{display:flex;flex-direction:column;gap:.55em}
-.sum-row{
-  display:grid;grid-template-columns:auto 1fr;gap:.8em;align-items:center;
-  padding:.75em .9em;border-radius:.85em;
-  background:rgba(255,255,255,.7);border:1px solid var(--line);
-  transition:transform .3s, border-color .3s, background .3s;
-}
-.sum-row:hover{transform:translateX(5px);border-color:var(--line-2);background:rgba(255,255,255,.9)}
-.sum-key{font-size:.7em;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:.35em .75em;border-radius:.5em;white-space:nowrap}
-.sum-row:nth-child(1) .sum-key{color:#6d28d9;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.35)}
-.sum-row:nth-child(2) .sum-key{color:#0e7490;background:rgba(8,145,178,.13);border:1px solid rgba(8,145,178,.35)}
-.sum-row:nth-child(3) .sum-key{color:#6d28d9;background:rgba(124,58,237,.13);border:1px solid rgba(124,58,237,.32)}
-.sum-row:nth-child(4) .sum-key{color:#0e7490;background:rgba(8,145,178,.12);border:1px solid rgba(8,145,178,.3)}
-.sum-row:nth-child(5) .sum-key{color:#b45309;background:rgba(217,119,6,.14);border:1px solid rgba(217,119,6,.35)}
-.sum-val{font-size:.8em;line-height:1.5;color:var(--ink-2)}
-.sum-val b{color:var(--ink)}
-
 /* ============ CONTROLS ============ */
 .controls{flex:0 0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px clamp(16px,3vw,34px) 16px}
 .ctl{
@@ -705,8 +446,7 @@ body::after{
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ============ FOCUS / A11Y ============ */
-.ctl:focus-visible, .dot:focus-visible, .sim-scn:focus-visible, .kin-chip:focus-visible,
-.ov-card:focus-visible, .sim-btn:focus-visible{
+.ctl:focus-visible, .dot:focus-visible, .ov-card:focus-visible{
   outline:3px solid var(--violet);
   outline-offset:3px;
 }
@@ -738,7 +478,7 @@ body::after{
     </div>
     <div class="topbar-right">
       <span class="slide-title" id="slideTitle">Perangkat Lunak (Software)</span>
-      <span class="counter" id="counter">01 / 11</span>
+      <span class="counter" id="counter">01 / 07</span>
     </div>
   </header>
   <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
@@ -1144,7 +884,6 @@ body::after{
                     </div>
                     <div class="app-name">WinRAR</div>
                   </div>
-                  <!-- FIXED: File Manager pakai SVG inline -->
                   <div class="app-card">
                     <div class="app-icon">
                       <svg viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1167,7 +906,6 @@ body::after{
                     </div>
                     <div class="app-name">CCleaner</div>
                   </div>
-                  <!-- FIXED: Disk Cleanup pakai SVG inline -->
                   <div class="app-card">
                     <div class="app-icon">
                       <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1179,7 +917,6 @@ body::after{
                     </div>
                     <div class="app-name">Disk Cleanup</div>
                   </div>
-                  <!-- FIXED: Task Manager pakai SVG inline -->
                   <div class="app-card">
                     <div class="app-icon">
                       <svg viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1218,204 +955,6 @@ body::after{
           </div>
 
         </div>
-      </div>
-    </section>
-
-    <!-- ============ 8. SIMULASI ============ -->
-    <section class="slide" data-title="Simulasi: Kerja Sama Software">
-      <div class="slide-inner">
-        <div class="s-head">
-          <div>
-            <h2 class="s-title">Simulasi: <span class="accent">Kerja Sama 3 Kategori</span></h2>
-            <p class="s-sub">Pilih skenario → tekan <b>▶ Mulai</b> → baca penjelasan → tekan <b>⏭ Lanjut</b> untuk langkah berikutnya.</p>
-          </div>
-          <div class="rule"></div>
-        </div>
-
-        <div class="sim-scenarios" id="simScenarios">
-          <button class="sim-scn" data-scn="word">📝 Mengetik Laporan</button>
-          <button class="sim-scn" data-scn="browse">🌐 Browsing Internet</button>
-          <button class="sim-scn" data-scn="print">🖨️ Mencetak Dokumen</button>
-          <button class="sim-scn" data-scn="save">💾 Menyimpan File</button>
-        </div>
-
-        <div class="sim-controls">
-          <button class="sim-btn primary" id="btnSimStart">▶ Mulai</button>
-          <button class="sim-btn" id="btnSimNext">⏭ Lanjut</button>
-          <button class="sim-btn" id="btnSimPause">⏸ Jeda</button>
-          <button class="sim-btn danger" id="btnSimStop">⏹ Stop</button>
-          <button class="sim-btn" id="btnSimAuto" title="Mode otomatis: setiap langkah 6 detik">⚙ Auto</button>
-        </div>
-
-        <div class="sim-flow">
-          <div class="sim-flow-main">
-            <div class="sim-node sim-user" data-layer="user">
-              <span class="sim-emoji">👤</span>
-              <span class="sim-name">Pengguna</span>
-              <span class="sim-role">Kamu</span>
-            </div>
-            <div class="sim-arrow">→</div>
-            <div class="sim-node sim-app" data-layer="app">
-              <span class="sim-emoji">📱</span>
-              <span class="sim-name">Aplikasi</span>
-              <span class="sim-role">Alat kerja</span>
-            </div>
-            <div class="sim-arrow">→</div>
-            <div class="sim-node sim-os" data-layer="os">
-              <span class="sim-emoji">⚙️</span>
-              <span class="sim-name">Sistem Operasi</span>
-              <span class="sim-role">Pengatur utama</span>
-            </div>
-            <div class="sim-arrow">→</div>
-            <div class="sim-node sim-hw" data-layer="hw">
-              <span class="sim-emoji">💻</span>
-              <span class="sim-name">Hardware</span>
-              <span class="sim-role">Perangkat fisik</span>
-            </div>
-          </div>
-          <div class="sim-util-row">
-            <div class="sim-node sim-util" data-layer="util">
-              <span class="sim-emoji">🛡️</span>
-              <span class="sim-name">Utilitas</span>
-              <span class="sim-role">Perawat</span>
-            </div>
-            <span class="sim-util-note">Bekerja di latar belakang — menjaga keamanan, kebersihan, dan cadangan data.</span>
-          </div>
-        </div>
-
-        <div class="sim-explain" id="simExplain">
-          <span class="sim-step-count">Penjelasan</span>
-          <div>👆 <b>Pilih salah satu skenario</b> di atas, lalu tekan tombol <b>▶ Mulai</b> untuk menjalankan simulasi.</div>
-          <div class="sim-explain-sub">Setiap langkah akan menyala satu per satu. Tekan <b>⏭ Lanjut</b> jika sudah selesai membaca.</div>
-        </div>
-
-        <div class="sim-legend">
-          <span>👤 Pengguna</span>
-          <span>📱 Aplikasi</span>
-          <span>⚙️ Sistem Operasi</span>
-          <span>💻 Hardware</span>
-          <span>🛡️ Utilitas</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 9. LATIHAN KINESTETIK ============ -->
-    <section class="slide" data-title="Latihan: Kelompokkan Software">
-      <div class="slide-inner">
-        <div class="s-head">
-          <div>
-            <h2 class="s-title">Latihan: <span class="accent">Kelompokkan Software</span></h2>
-            <p class="s-sub">Klik satu software di kotak atas, lalu klik kotak kategori yang tepat di bawah.</p>
-          </div>
-          <div class="rule"></div>
-        </div>
-
-        <div class="kin-pool" id="kinPool">
-          <button class="kin-chip" data-cat="os">Windows</button>
-          <button class="kin-chip" data-cat="app">WhatsApp</button>
-          <button class="kin-chip" data-cat="util">Antivirus</button>
-          <button class="kin-chip" data-cat="os">Android</button>
-          <button class="kin-chip" data-cat="app">Google Chrome</button>
-          <button class="kin-chip" data-cat="util">7-Zip</button>
-          <button class="kin-chip" data-cat="os">Linux</button>
-          <button class="kin-chip" data-cat="app">TikTok</button>
-          <button class="kin-chip" data-cat="util">CCleaner</button>
-        </div>
-
-        <div class="kin-zones">
-          <div class="kin-zone zone-os" data-cat="os">
-            <h4>⚙️ Sistem Operasi</h4>
-            <div class="kin-items"></div>
-          </div>
-          <div class="kin-zone zone-app" data-cat="app">
-            <h4>📱 Aplikasi</h4>
-            <div class="kin-items"></div>
-          </div>
-          <div class="kin-zone zone-util" data-cat="util">
-            <h4>🛡️ Utilitas</h4>
-            <div class="kin-items"></div>
-          </div>
-        </div>
-
-        <div class="kin-score" id="kinScore">Skor: <b>0</b> / 9</div>
-      </div>
-    </section>
-
-    <!-- ============ 10. KESEHARIAN ============ -->
-    <section class="slide" data-title="Software di Sekitar Kita">
-      <div class="slide-inner">
-        <div class="s-head">
-          <div>
-            <h2 class="s-title">Software di <span class="accent">Sekitar Kita</span></h2>
-            <p class="s-sub">Satu pekerjaan bisa pakai ketiga kategori software sekaligus.</p>
-          </div>
-          <div class="rule"></div>
-        </div>
-
-        <div class="flow">
-          <div class="card flow-step"><span class="step-n">1</span><h4>Sistem Operasi</h4><p><b style="color:#6d28d9">Windows</b> menyalakan komputer dan menyiapkan semua perangkat.</p></div>
-          <div class="card flow-step"><span class="step-n">2</span><h4>Menulis Laporan</h4><p><b style="color:#0e7490">Microsoft Word</b> dipakai untuk mengetik laporan.</p></div>
-          <div class="card flow-step"><span class="step-n">3</span><h4>Cari Informasi</h4><p><b style="color:#0e7490">Google Chrome</b> untuk mencari referensi di internet.</p></div>
-          <div class="card flow-step"><span class="step-n">4</span><h4>Proteksi</h4><p><b style="color:#b45309">Antivirus</b> melindungi komputer dari virus.</p></div>
-          <div class="card flow-step"><span class="step-n">5</span><h4>Kompresi</h4><p><b style="color:#b45309">7-Zip</b> memperkecil ukuran file agar mudah dikirim.</p></div>
-        </div>
-
-        <div class="pill-note">
-          <span style="font-size:1.5em">💡</span>
-          <span>
-            Ketiga kategori <b>bekerja sama</b>. Sistem operasi jadi fondasi,
-            aplikasi jadi alat kerja, dan utilitas menjaga semuanya tetap aman dan optimal.
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 11. PEMANTIK & RANGKUMAN ============ -->
-    <section class="slide" data-title="Pemantik & Rangkuman">
-      <div class="slide-inner">
-        <div class="s-head">
-          <div>
-            <h2 class="s-title">Pemantik &amp; <span class="accent">Rangkuman</span></h2>
-            <p class="s-sub">Yuk refleksikan apa yang baru saja kita pelajari.</p>
-          </div>
-          <div class="rule"></div>
-        </div>
-
-        <div class="final-grid">
-          <div class="ask">
-            <div class="ask-item"><span class="n">1</span><p>Mengapa komputer dengan hardware lengkap tetap tidak bisa dipakai tanpa software?</p></div>
-            <div class="ask-item"><span class="n">2</span><p>Apa beda aplikasi dan utilitas? Beri satu contoh untuk masing-masing.</p></div>
-          </div>
-
-          <div class="sum-list">
-            <div class="sum-row">
-              <span class="sum-key">Software</span>
-              <span class="sum-val">Kumpulan instruksi yang memberi tahu <b>hardware</b> apa yang harus dikerjakan.</span>
-            </div>
-            <div class="sum-row">
-              <span class="sum-key">Ciri</span>
-              <span class="sum-val">Tidak berwujud, berupa program, butuh hardware, bisa diperbarui, punya lisensi.</span>
-            </div>
-            <div class="sum-row">
-              <span class="sum-key">Sistem Operasi</span>
-              <span class="sum-val">Mengatur hardware &amp; jadi perantara. <i>Contoh: Windows, Android.</i></span>
-            </div>
-            <div class="sum-row">
-              <span class="sum-key">Aplikasi</span>
-              <span class="sum-val">Bantu selesaikan tugas pengguna. <i>Contoh: WhatsApp, Chrome.</i></span>
-            </div>
-            <div class="sum-row">
-              <span class="sum-key">Utilitas</span>
-              <span class="sum-val">Program bantu untuk <b>mengelola, merawat, menganalisis, dan mengoptimalkan</b> kinerja komputer. <i>Jenis: keamanan, manajemen file, perawatan sistem, cadangan.</i></span>
-            </div>
-          </div>
-        </div>
-
-        <p style="text-align:center;margin-top:1.4em;font-size:1.1em;font-weight:900;letter-spacing:-.01em">
-          <span style="background:linear-gradient(100deg,#0891b2,#7c3aed,#e11d48);-webkit-background-clip:text;background-clip:text;color:transparent">
-            Terima kasih — mari berlatih dan bereksplorasi! 🚀
-          </span>
-        </p>
       </div>
     </section>
 
@@ -1530,28 +1069,14 @@ body::after{
 
   function sfxClick(){ beep(560, 0.07, 'sine', 0.045); }
   function sfxSlide(){ beep(420, 0.10, 'sine', 0.05); beep(660, 0.14, 'sine', 0.04, 0.08); }
-  function sfxCorrect(){
-    beep(660, 0.10, 'sine', 0.06);
-    beep(880, 0.14, 'sine', 0.06, 0.09);
-    beep(1180, 0.20, 'sine', 0.05, 0.22);
-  }
-  function sfxWrong(){
-    beep(220, 0.14, 'sawtooth', 0.05);
-    beep(160, 0.22, 'sawtooth', 0.045, 0.10);
-  }
-  function sfxLayer(){ beep(740, 0.10, 'triangle', 0.05); }
 
   /* =========================================================
      TEXT-TO-SPEECH — ARTIKULASI JELAS
-     - Naskah narasi khusus per slide (bukan baca mentah HTML)
-     - Pemilihan suara Bahasa Indonesia berkualitas
-     - Pemecahan per kalimat + jeda pendek
-     - Rate 0.92 (sedikit pelan agar jelas)
   ========================================================= */
   var ttsSupported = ('speechSynthesis' in window);
   var idVoice = null;
 
-  // Naskah narasi per slide — dioptimalkan untuk didengar (bukan dibaca)
+  // Naskah narasi per slide (7 slide)
   var NARRATIONS = [
     // 0. Cover
     "Selamat datang di pembelajaran Informatika. Topik kita kali ini adalah Perangkat Lunak, atau Software. " +
@@ -1600,32 +1125,7 @@ body::after{
     "Keamanan, contohnya Avast, Malwarebytes, dan Windows Defender. " +
     "Manajemen file, contohnya 7-Zip, WinRAR, dan File Manager. " +
     "Perawatan sistem, contohnya CCleaner, Disk Cleanup, dan Task Manager. " +
-    "Cadangan, contohnya Google Drive dan Windows Backup.",
-
-    // 7. Simulasi
-    "Sekarang kita lihat bagaimana sistem operasi, aplikasi, dan utilitas bekerja bersama. " +
-    "Pilih salah satu skenario, lalu tekan tombol Mulai. " +
-    "Setiap langkah akan menyala bergantian, supaya kamu tahu bagian mana yang sedang bekerja. " +
-    "Tekan tombol Lanjut untuk membaca langkah berikutnya.",
-
-    // 8. Latihan kinestetik
-    "Saatnya berlatih. " +
-    "Klik salah satu software di kotak bagian atas, lalu klik kotak kategori yang tepat di bawah. " +
-    "Jika benar, software akan berpindah ke kotak tersebut. " +
-    "Selamat mencoba!",
-
-    // 9. Keseharian
-    "Dalam kehidupan sehari-hari, ketiga kategori software bekerja sama. " +
-    "Sistem operasi menjadi fondasi, aplikasi menjadi alat kerja, dan utilitas menjaga semuanya tetap aman dan optimal. " +
-    "Contohnya, Windows menyalakan komputer, Microsoft Word untuk mengetik, Google Chrome untuk mencari informasi, " +
-    "Antivirus untuk melindungi, dan 7-Zip untuk memperkecil ukuran file.",
-
-    // 10. Rangkuman
-    "Mari kita rangkum. " +
-    "Software adalah kumpulan instruksi yang memberi tahu hardware apa yang harus dikerjakan. " +
-    "Ciri-cirinya, tidak berwujud, berupa program, membutuhkan hardware, bisa diperbarui, dan memiliki lisensi. " +
-    "Sistem operasi mengatur hardware, aplikasi membantu menyelesaikan tugas, dan utilitas merawat serta melindungi komputer. " +
-    "Terima kasih, mari berlatih dan bereksplorasi."
+    "Cadangan, contohnya Google Drive dan Windows Backup."
   ];
 
   function pickVoice(){
@@ -1633,12 +1133,11 @@ body::after{
     var vs = window.speechSynthesis.getVoices();
     if(!vs || !vs.length) return;
 
-    // Prioritas suara Bahasa Indonesia yang artikulasinya bagus
     var priorities = [
-      'Microsoft Andika',       // Windows — suara pria ID
-      'Microsoft Gadis',        // Windows — suara wanita ID
-      'Microsoft Ardi',         // Windows — suara pria ID (alternatif)
-      'Google Bahasa Indonesia' // Chrome — suara ID
+      'Microsoft Andika',
+      'Microsoft Gadis',
+      'Microsoft Ardi',
+      'Google Bahasa Indonesia'
     ];
     for(var i = 0; i < priorities.length; i++){
       var found = vs.find(function(v){
@@ -1646,7 +1145,6 @@ body::after{
       });
       if(found){ idVoice = found; return; }
     }
-    // Fallback: suara apa pun yang berbahasa Indonesia
     idVoice = vs.find(function(v){
       return v.lang && v.lang.toLowerCase().indexOf('id') === 0;
     }) || null;
@@ -1662,7 +1160,6 @@ body::after{
     try { window.speechSynthesis.cancel(); } catch(e){}
   }
 
-  // Ucapkan teks dengan pemecahan per kalimat + jeda pendek
   function speakClear(text, onEnd){
     if(!ttsSupported){
       showToast('Browser ini belum mendukung audio narasi.');
@@ -1671,7 +1168,6 @@ body::after{
     stopSpeak();
     if(!text) return;
 
-    // Pisahkan per kalimat (. ! ?) — memudahkan TTS melafalkan dengan jelas
     var parts = text.split(/(?<=[.!?])\s+/).filter(function(s){ return s.trim().length > 0; });
     if(!parts.length) parts = [text];
 
@@ -1683,13 +1179,12 @@ body::after{
       }
       var u = new SpeechSynthesisUtterance(parts[i]);
       u.lang = 'id-ID';
-      u.rate = 0.92;   // sedikit pelan agar artikulasi jelas
+      u.rate = 0.92;
       u.pitch = 1.0;
       u.volume = 1.0;
       if(idVoice) u.voice = idVoice;
       u.onend = function(){
         i++;
-        // Jeda 180 ms antar kalimat supaya terasa lebih jelas & tidak menyambung
         setTimeout(speakNext, 180);
       };
       u.onerror = function(){
@@ -1704,7 +1199,6 @@ body::after{
   function narrateSlide(){
     var script = NARRATIONS[idx];
     if(!script){
-      // Fallback: baca teks slide (sudah dibersihkan)
       var inner = slides[idx].querySelector('.slide-inner');
       script = inner ? (inner.innerText || '') : '';
       script = script.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}\u{2B00}-\u{2BFF}]/gu, ' ')
@@ -1767,7 +1261,6 @@ body::after{
     if(!silent){
       sfxSlide();
       stopSpeak();
-      simResetAll();
       if(narrAuto) setTimeout(narrateSlide, 500);
     }
   }
@@ -1822,342 +1315,6 @@ body::after{
   function toggleOverlay(){ overlay.classList.contains('show') ? closeOverlay() : openOverlay(); }
   function openHelp(){ helpModal.classList.add('show'); }
   function closeHelp(){ helpModal.classList.remove('show'); }
-
-  /* =========================================================
-     SIMULASI
-  ========================================================= */
-  var scenarios = {
-    word: {
-      title: 'Mengetik Laporan',
-      steps: [
-        {layer:'user', text:'Kamu membuka laptop dan mengklik ikon Microsoft Word di desktop.'},
-        {layer:'os',   text:'Sistem Operasi (Windows) menerima klik dan mencari program Word.'},
-        {layer:'app',  text:'Aplikasi Microsoft Word terbuka, siap menerima ketikanmu.'},
-        {layer:'os',   text:'Setiap huruf yang kamu ketik diatur oleh Sistem Operasi sebelum dikirim ke layar.'},
-        {layer:'hw',   text:'Layar menampilkan huruf, keyboard mengirim sinyal ke komputer.'},
-        {layer:'util', text:'Antivirus (Utilitas) memeriksa file agar tetap aman dari virus.'}
-      ]
-    },
-    browse: {
-      title: 'Browsing Internet',
-      steps: [
-        {layer:'user', text:'Kamu ingin mencari informasi dan mengklik ikon Google Chrome.'},
-        {layer:'os',   text:'Sistem Operasi menyalakan koneksi jaringan (WiFi).'},
-        {layer:'app',  text:'Google Chrome membuka halaman web yang kamu tuju.'},
-        {layer:'util', text:'Firewall (Utilitas) melindungi koneksi agar tidak disusupi hal berbahaya.'},
-        {layer:'hw',   text:'Kartu WiFi mengirim dan menerima data ke internet.'},
-        {layer:'app',  text:'Chrome menampilkan hasil pencarian di layar untukmu.'}
-      ]
-    },
-    print: {
-      title: 'Mencetak Dokumen',
-      steps: [
-        {layer:'user', text:'Kamu menekan tombol Print (Ctrl+P) di aplikasi Word.'},
-        {layer:'app',  text:'Aplikasi mengirim perintah cetak ke Sistem Operasi.'},
-        {layer:'os',   text:'Sistem Operasi mencari driver printer dan menyiapkan antrian cetak.'},
-        {layer:'hw',   text:'Printer (hardware) menerima data dan mulai mencetak.'},
-        {layer:'util', text:'Utilitas memantau antrian agar tidak macet atau gagal.'},
-        {layer:'app',  text:'Aplikasi menampilkan status "Printing selesai" di layar.'}
-      ]
-    },
-    save: {
-      title: 'Menyimpan File',
-      steps: [
-        {layer:'user', text:'Kamu menyimpan file laporan dengan menekan Ctrl+S.'},
-        {layer:'app',  text:'Aplikasi Word menyiapkan data untuk disimpan.'},
-        {layer:'os',   text:'Sistem Operasi menentukan lokasi penyimpanan di hard disk.'},
-        {layer:'hw',   text:'Hard disk (hardware) menulis data ke piringan magnetik.'},
-        {layer:'util', text:'Utilitas backup membuat salinan cadangan otomatis ke cloud.'},
-        {layer:'app',  text:'Aplikasi menampilkan pesan "File berhasil disimpan".'}
-      ]
-    }
-  };
-
-  var AUTO_DELAY = 6000;
-
-  var simState = {
-    key: null,
-    step: 0,
-    running: false,
-    auto: false,
-    timer: null
-  };
-
-  function clearSimTimer(){
-    if(simState.timer){ clearTimeout(simState.timer); simState.timer = null; }
-  }
-
-  function clearNodeActive(){
-    document.querySelectorAll('.sim-node.active').forEach(function(el){
-      el.classList.remove('active');
-    });
-  }
-
-  function highlightNode(name){
-    clearNodeActive();
-    var el = document.querySelector('.sim-node[data-layer="' + name + '"]');
-    if(el) el.classList.add('active');
-  }
-
-  function updateSimButtons(){
-    var startBtn = document.getElementById('btnSimStart');
-    var nextBtn  = document.getElementById('btnSimNext');
-    var pauseBtn = document.getElementById('btnSimPause');
-    var autoBtn  = document.getElementById('btnSimAuto');
-    var hasKey   = !!simState.key;
-    var scn = hasKey ? scenarios[simState.key] : null;
-    var atEnd = scn ? simState.step >= scn.steps.length : true;
-
-    startBtn.disabled = !hasKey;
-    nextBtn.disabled  = !simState.running || atEnd;
-    pauseBtn.disabled = !simState.running || !simState.auto;
-    autoBtn.disabled  = !hasKey;
-    autoBtn.classList.toggle('toggled', simState.auto);
-  }
-
-  function renderSimIdle(){
-    var ex = document.getElementById('simExplain');
-    ex.innerHTML =
-      '<span class="sim-step-count">Penjelasan</span>' +
-      '<div>👆 <b>Pilih salah satu skenario</b> di atas, lalu tekan tombol <b>▶ Mulai</b> untuk menjalankan simulasi.</div>' +
-      '<div class="sim-explain-sub">Setiap langkah akan menyala satu per satu. Tekan <b>⏭ Lanjut</b> jika sudah selesai membaca.</div>';
-  }
-
-  function renderSimReady(){
-    var scn = scenarios[simState.key];
-    if(!scn) return;
-    var ex = document.getElementById('simExplain');
-    ex.innerHTML =
-      '<span class="sim-step-count">Skenario Dipilih</span>' +
-      '<div><b>📌 ' + scn.title + '</b></div>' +
-      '<div class="sim-explain-sub">Tekan tombol <b>▶ Mulai</b> untuk menjalankan simulasi langkah demi langkah. Tekan <b>⏭ Lanjut</b> untuk pindah ke langkah berikutnya, atau <b>⏹ Stop</b> untuk berhenti.</div>';
-  }
-
-  function renderSimStep(step, stepIdx, totalSteps, scnTitle){
-    var ex = document.getElementById('simExplain');
-    var layerNames = {
-      user:'Pengguna', app:'Aplikasi', os:'Sistem Operasi',
-      hw:'Hardware', util:'Utilitas'
-    };
-    ex.innerHTML =
-      '<span class="sim-step-count">' + scnTitle + ' — Langkah ' + (stepIdx+1) + ' dari ' + totalSteps + '</span>' +
-      '<div>' + step.text + '</div>' +
-      '<div class="sim-explain-sub">Bagian yang menyala: <b>' + (layerNames[step.layer] || step.layer) + '</b>. Tekan <b>⏭ Lanjut</b> untuk melanjutkan.</div>';
-  }
-
-  function renderSimFinish(){
-    var ex = document.getElementById('simExplain');
-    ex.innerHTML =
-      '<span class="sim-step-count">Selesai</span>' +
-      '<div>✅ <b>Simulasi selesai!</b></div>' +
-      '<div class="sim-explain-sub">Coba pilih skenario lain, atau tekan <b>▶ Mulai</b> lagi untuk mengulang dari awal.</div>';
-  }
-
-  function simSelect(key){
-    clearSimTimer();
-    simState.key = key;
-    simState.step = 0;
-    simState.running = false;
-    simState.auto = false;
-
-    document.querySelectorAll('.sim-scn').forEach(function(b){
-      b.classList.toggle('active', b.dataset.scn === key);
-    });
-    clearNodeActive();
-    renderSimReady();
-    updateSimButtons();
-  }
-
-  function simStart(){
-    if(!simState.key){
-      showToast('Pilih skenario dulu ya 👆');
-      return;
-    }
-    clearSimTimer();
-    simState.step = 0;
-    simState.running = true;
-    simShowStep();
-    showToast('▶ Simulasi dimulai — tekan ⏭ Lanjut untuk pindah langkah');
-  }
-
-  function simShowStep(){
-    var scn = scenarios[simState.key];
-    if(!scn){ return; }
-    if(simState.step >= scn.steps.length){
-      simFinish();
-      return;
-    }
-    var step = scn.steps[simState.step];
-    highlightNode(step.layer);
-    sfxLayer();
-    renderSimStep(step, simState.step, scn.steps.length, scn.title);
-    updateSimButtons();
-
-    if(simState.auto && simState.running){
-      clearSimTimer();
-      simState.timer = setTimeout(function(){
-        simState.step++;
-        simShowStep();
-      }, AUTO_DELAY);
-    }
-  }
-
-  function simNext(){
-    if(!simState.running) return;
-    clearSimTimer();
-    simState.step++;
-    simShowStep();
-  }
-
-  function simPause(){
-    if(!simState.running) return;
-    clearSimTimer();
-    simState.auto = false;
-    updateSimButtons();
-    showToast('⏸ Dijeda — tekan ⏭ Lanjut untuk melanjutkan');
-  }
-
-  function simStop(){
-    clearSimTimer();
-    simState.running = false;
-    simState.step = 0;
-    simState.auto = false;
-    clearNodeActive();
-    if(simState.key){
-      renderSimReady();
-    } else {
-      renderSimIdle();
-    }
-    updateSimButtons();
-    showToast('⏹ Simulasi dihentikan');
-  }
-
-  function simToggleAuto(){
-    if(!simState.key){
-      showToast('Pilih skenario dulu ya 👆');
-      return;
-    }
-    simState.auto = !simState.auto;
-    updateSimButtons();
-    if(simState.auto){
-      showToast('⚙ Mode otomatis — setiap langkah 6 detik');
-      if(simState.running){
-        clearSimTimer();
-        simState.timer = setTimeout(function(){
-          simState.step++;
-          simShowStep();
-        }, AUTO_DELAY);
-      }
-    } else {
-      clearSimTimer();
-      showToast('Auto dimatikan — klik ⏭ Lanjut manual');
-    }
-  }
-
-  function simFinish(){
-    clearSimTimer();
-    simState.running = false;
-    simState.auto = false;
-    clearNodeActive();
-    renderSimFinish();
-    updateSimButtons();
-  }
-
-  function simResetAll(){
-    clearSimTimer();
-    simState.key = null;
-    simState.step = 0;
-    simState.running = false;
-    simState.auto = false;
-    clearNodeActive();
-    document.querySelectorAll('.sim-scn').forEach(function(b){
-      b.classList.remove('active');
-    });
-    renderSimIdle();
-    updateSimButtons();
-  }
-
-  document.querySelectorAll('.sim-scn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      initAudio(); sfxClick();
-      simSelect(btn.dataset.scn);
-    });
-  });
-  document.getElementById('btnSimStart').addEventListener('click', function(){ initAudio(); simStart(); });
-  document.getElementById('btnSimNext').addEventListener('click', function(){ initAudio(); simNext(); });
-  document.getElementById('btnSimPause').addEventListener('click', function(){ initAudio(); simPause(); });
-  document.getElementById('btnSimStop').addEventListener('click', function(){ initAudio(); simStop(); });
-  document.getElementById('btnSimAuto').addEventListener('click', function(){ initAudio(); simToggleAuto(); });
-
-  renderSimIdle();
-  updateSimButtons();
-
-  /* =========================================================
-     LATIHAN KINESTETIK
-  ========================================================= */
-  var selectedChip = null;
-  var kinPlaced = 0;
-  var KIN_TOTAL = document.querySelectorAll('.kin-chip').length;
-
-  function updateKinScore(){
-    var el = document.getElementById('kinScore');
-    if(!el) return;
-    el.innerHTML = 'Skor: <b>' + kinPlaced + '</b> / ' + KIN_TOTAL;
-    if(kinPlaced === KIN_TOTAL){
-      el.innerHTML = '🎉 Hebat! Skor: <b>' + kinPlaced + '</b> / ' + KIN_TOTAL + ' — Semua benar!';
-    }
-  }
-
-  document.querySelectorAll('.kin-chip').forEach(function(chip){
-    chip.addEventListener('click', function(){
-      initAudio();
-      if(chip.classList.contains('placed')) return;
-      if(selectedChip === chip){
-        chip.classList.remove('selected');
-        selectedChip = null;
-        document.querySelectorAll('.kin-zone').forEach(function(z){ z.classList.remove('armed'); });
-        return;
-      }
-      if(selectedChip) selectedChip.classList.remove('selected');
-      selectedChip = chip;
-      chip.classList.add('selected');
-      document.querySelectorAll('.kin-zone').forEach(function(z){ z.classList.add('armed'); });
-      sfxClick();
-    });
-  });
-
-  document.querySelectorAll('.kin-zone').forEach(function(zone){
-    zone.addEventListener('click', function(){
-      if(!selectedChip){
-        showToast('Pilih dulu salah satu software di kotak atas 👆');
-        return;
-      }
-      initAudio();
-      var correct = selectedChip.dataset.cat === zone.dataset.cat;
-      if(correct){
-        var chip = selectedChip;
-        chip.classList.remove('selected');
-        chip.classList.add('placed');
-        zone.querySelector('.kin-items').appendChild(chip);
-        selectedChip = null;
-        kinPlaced++;
-        sfxCorrect();
-        updateKinScore();
-        document.querySelectorAll('.kin-zone').forEach(function(z){ z.classList.remove('armed'); });
-        if(kinPlaced === KIN_TOTAL){
-          showToast('🎉 Semua software sudah dikelompokkan dengan benar!');
-        }
-      } else {
-        var ch = selectedChip;
-        ch.classList.add('wrong');
-        sfxWrong();
-        setTimeout(function(){ ch.classList.remove('wrong'); }, 500);
-        showToast('Ups, belum tepat. Coba kategori lain ya 😊');
-      }
-    });
-  });
-
-  updateKinScore();
 
   /* =========================================================
      EVENT LISTENERS — CONTROLS
